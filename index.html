@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.8.6/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+         function myF3(){
+       var x=0; var arr=[]; var check=[];
+       while(document.getElementById('x'+x)!= null){         check.push(document.getElementById('ad'+x+'0').innerHTML);
+         check.push(document.getElementById('ad'+x+'1').innerHTML);
+         check.push(document.getElementById('ad'+x+'2').innerHTML);
+         check.push(document.getElementById('ad'+x+'3').innerHTML);
+         arr.push(check);
+         check=[];
+         x++;
+       }
+       
+       if($('#ce1 .fa-arrow-down').css('display') == 'inline'){
+        arr= arr.sort(function(a,b){return b[2]-a[2]});
+       }
+       else if($('#ce1 .fa-arrow-up').css('display') == 'inline'){
+        arr= arr.sort(function(a,b){return a[0]-b[0]}); 
+       }      
+       else {
+        arr= arr.sort(function(a,b){return a[2]-b[2]}); 
+       }
+       
+         for(var i=0;i<x; i++){
+           document.getElementById('ad'+i+'0').innerHTML=arr[i][0];
+           document.getElementById('ad'+i+'1').innerHTML=arr[i][1];
+           document.getElementById('ad'+i+'2').innerHTML=arr[i][2];
+           document.getElementById('ad'+i+'3').innerHTML=arr[i][3];
+         }
+     }
+     
+     function myF4(){
+       var x=0; var arr=[]; var check=[];
+       while(document.getElementById('x'+x)!= null){
+         check.push(document.getElementById('ad'+x+'0').innerHTML);
+         check.push(document.getElementById('ad'+x+'1').innerHTML);
+         check.push(document.getElementById('ad'+x+'2').innerHTML);
+         check.push(document.getElementById('ad'+x+'3').innerHTML);
+         check.push(document.getElementById('ad'+x+'3').innerHTML.replace(':','.'));
+         arr.push(check);
+         check=[];
+         x++;
+       }
+       
+       if($('#ce2 .fa-arrow-down').css('display') == 'inline'){
+        arr= arr.sort(function(a,b){return b[4]-a[4]});
+       }
+       else if($('#ce2 .fa-arrow-up').css('display') == 'inline'){
+        arr= arr.sort(function(a,b){return a[0]-b[0]}); 
+       }      
+       else {
+        arr= arr.sort(function(a,b){return a[4]-b[4]}); 
+       }
+       
+         for(var i=0;i<x; i++){
+           document.getElementById('ad'+i+'0').innerHTML=arr[i][0];
+           document.getElementById('ad'+i+'1').innerHTML=arr[i][1];
+           document.getElementById('ad'+i+'2').innerHTML=arr[i][2];
+           document.getElementById('ad'+i+'3').innerHTML=arr[i][3];
+         }       
+     }
+
+
+  var url= "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json";
+  var input= [];
+  
+  var ajax1= $.ajax({url:url,
+          type: 'GET'
+                    }); 
+          
+       $.when(ajax1).done(  
+          function(data){ 
+            data=JSON.parse(data); 
+            var arr=[];
+            
+            for(var i=0; i< data.length; i++){
+              arr.push(data[i]['Name']);
+              arr.push(data[i]['Time']);
+              arr.push(data[i]['Year'])
+              input.push(arr)
+              arr=[];
+            }
+            
+   
+
+class MyC extends React.Component{
+   constructor(props){
+     super(props);
+     this.state={input:[]}
+   }
+   
+   render(){
+
+     return(
+      <div>
+         
+         <div className="wo">
+           {input.map((x,i)=>
+      <table className="col-xs-12 ga" id={"x"+i}>
+      <td className="col-xs-1 d0 d" id={"ad"+i+"0"}>
+        {i+1}
+      </td>
+      <td className="col-xs-3 d1 d" id={"ad"+i+"1"}>
+        {x[0]}
+      </td>
+      <td className="col-xs-4 d2 d" id={"ad"+i+"2"}>
+        {x[2]}
+      </td>
+      <td className="col-xs-4 d3 d" id={"ad"+i+"3"}>
+        {x[1]}
+      </td>
+      </table>
+        )}      
+           
+           
+         </div>
+
+      
+      </div>
+     );
+   }
+ }
+
+ReactDOM.render(<MyC />, document.getElementById('bM'));
+            
+            
+})
+    </script>
+    <script> 
+     $(document).ready(function(){
+       $('#a1').on('click', function(){
+         $('#ce2 i').css('display', 'none');
+         if($('#ce1 .fa-arrow-down').css('display') == 'none' && $('#ce1 .fa-arrow-up').css('display') == 'none'){
+          $('#ce1 .fa-arrow-down').css('display', 'inline');
+
+         }
+         else if($('#ce1 .fa-arrow-down').css('display') == 'inline' && $('#ce1 .fa-arrow-up').css('display') == 'none'){
+          $('#ce1 .fa-arrow-down').css('display', 'none');
+          $('#ce1 .fa-arrow-up').css('display', 'inline');
+         } 
+         else{
+          $('#ce1 .fa-arrow-down').css('display', 'none');
+          $('#ce1 .fa-arrow-up').css('display', 'none');            
+         }
+       })
+       
+       $('#a2').on('click', function(){
+         $('#ce1 i').css('display', 'none');
+         if($('#ce2 .fa-arrow-down').css('display') == 'none' && $('#ce2 .fa-arrow-up').css('display') == 'none'){
+          $('#ce2 .fa-arrow-down').css('display', 'inline');
+
+         }
+         else if($('#ce2 .fa-arrow-down').css('display') == 'inline' && $('#ce2 .fa-arrow-up').css('display') == 'none'){
+          $('#ce2 .fa-arrow-down').css('display', 'none');
+          $('#ce2 .fa-arrow-up').css('display', 'inline');
+         } 
+         else{
+          $('#ce2 .fa-arrow-down').css('display', 'none');
+          $('#ce2 .fa-arrow-up').css('display', 'none');            
+         }
+       })            
+     })
+    </script>
+     
+  </head>
+  <body>
+
+    <div class="boxed1">
+      <p><i class="fa fa-500px"> </i> Leaderboard <i class="fa fa-align-left"> </i></p>
+    </div> 
+  <div class="box">
+    
+    <div class="boxed2">
+      <div class="b1">
+        <p>Current Standings</p>
+      </div>  
+    </div>
+    <div class="boxed3">
+      <div class="b2">
+      <div class="col-xs-1 c0 c">
+      #
+      </div>
+      <div class="col-xs-3 c1 c">
+      Name
+      </div>
+      <div class="col-xs-4 c1 c" id="a1" onclick="myF3()">
+        Year <ce id="ce1"><i class="fa fa-arrow-down"></i><i class="fa fa-arrow-up"></i></ce>
+      </div>
+      <div class="col-xs-4 c1 c" id="a2" onclick="myF4()">
+      Time <ce id="ce2"><i class="fa fa-arrow-down"></i><i class="fa fa-arrow-up"></i></ce>
+      </div>
+      </div>
+    </div>
+    <div class="boxedM" id="bM">
+      
+    </div>
+  </div>
+   
+   <div class="boxed4">
+      <p>&copy <va id="va"></va> The Official Leaderboard Calculator</p>
+      <script>
+      document.getElementById('va').innerHTML= new Date().getFullYear();
+      </script>
+    </div>
+  
+  
+  </body>
+</html>
