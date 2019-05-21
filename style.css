@@ -1,0 +1,159 @@
+body{
+  padding:0px;
+  margin: 0px;
+  background: #f2f2f2 !important;
+}
+
+.box{
+  background: #f2f2f2;
+  min-height: 100vh;
+}
+
+.boxed1{
+  position: absolute;
+  display: block;
+  color: white;
+  background: teal;
+  height: 60px;
+  width: 100vw;
+}
+
+.boxed1 p{
+  padding-left: 12%;
+  margin-top: 15px;
+  font-size: 25px;
+}
+
+.boxed2{
+  display: block;
+  color: white;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.boxed2 p{
+  width: 80vw;
+  max-width: 1000px;
+  min-width: 500px;
+  background: teal;
+  margin: auto;
+  border-radius: 5px 5px 0px 0px;
+  height: 40px;
+  font-size: 22px;
+  padding-top: 3px;
+}
+
+.boxed3 .b2{
+  width: 80vw;
+  max-width: 1000px;
+  min-width: 500px;
+  background: white;
+  margin: auto;
+  border: 1px solid gray;
+  height: 42px;
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 7px;
+}
+
+.c0{
+  padding-top: 9px;
+}
+
+.c1{
+  border-left: 1px solid #d9d9d9;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+.c{
+  margin-top: -7px;
+}
+
+.boxed4{
+  margin-top: 20px;
+  height: 50px;
+  background: teal;
+}
+
+.boxed4 p{
+  text-align: center;
+  padding-top: 10px;
+  color: white;
+}
+
+#a1, #a2{
+  text-decoration: underline;
+  color: navy;
+  text-align: center;
+}
+
+#a1:hover, #a2:hover{
+  cursor: pointer;
+  color: gray;
+}
+
+#ce1 i,#ce2 i{
+  text-decoration: underline;
+}
+
+#ce1 i{
+  display:none;
+}
+
+.boxedM{
+  width: 80vw;
+  max-width: 1000px;
+  min-width: 500px;
+  background: white;
+  margin: auto;
+  border: 1px solid gray;
+  height: 42px;
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 7px;  
+  
+}
+
+.d2,.d3{
+  text-align:center;
+}
+
+.d1,.d2,.d3{
+  border-left: 1px solid #d9d9d9;
+}
+
+.d{
+  min-height: 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 0px;
+}
+
+
+#bM{
+  overflow-y: scroll;
+  min-height: 600px;
+  background: #e9e9e9;
+}
+
+.c1,.c2{
+  margin-right: -5px;
+}
+
+.wo{
+  margin-top: -7px;
+}
+
+.ga{
+  border-bottom: 1px solid gray;
+  background: #fefaed;
+}
+
+#ce2 .fa-arrow-up{
+  display: none;
+}
+
+#ce2 .fa-arrow-down{
+  display: inline;
+}
